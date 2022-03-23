@@ -24,7 +24,7 @@ void	free_stack(t_list *stack)
 //		return;
 //	}
 	current = stack;
-	while (current && current->next)
+	while (current)
 	{
 		free(current->cost);
 		tmp = current;
@@ -39,7 +39,7 @@ void	free_log(t_log *actions_log)
 	t_log	*tmp;
 
 	current = actions_log;
-	while (current && current->next)
+	while (current)
 	{
 		free(current->action);
 		tmp = current;

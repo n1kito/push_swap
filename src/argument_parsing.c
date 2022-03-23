@@ -37,6 +37,15 @@ int	args_to_list(int arg_count, char **argv, t_list **stack_a)
 				return (0);
 	}
 	lst_indexer(stack_a);
+	// cette partie ne fonctionne pas, mes numeros sont toujours leaks...
+	i = 0;
+	while (divided_args[i])
+	{
+		free(divided_args[i]);
+		i++;
+	}
+	free(divided_args);
+	//
 	return (1);
 }
 

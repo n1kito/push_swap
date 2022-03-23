@@ -33,9 +33,10 @@ int	main(int argc, char **argv)
 		lst_sort_indexer(&stack_a);
 		sort_gps(&stack_a, &stack_b, &actions_log);
 		print_log(actions_log);
-//		free_stack(stack_a);
-//		free_stack(stack_b); // inutile je crois
-//		free_log(actions_log);
+		free_stack(stack_a);
+		free_stack(stack_b); // inutile je crois
+		free_log(actions_log);
 	}
+	system("leaks push_swap");
 	return (0);
 }

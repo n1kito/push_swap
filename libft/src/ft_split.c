@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 static char	**ft_free_malloc(char **tab)
 {

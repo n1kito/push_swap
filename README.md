@@ -26,11 +26,12 @@
 - [ ] Faire les unit tests pour mes operations (push, rotate etc... Surtout avec les double linked lists)
 - [ ] Idem pour lstlen
 - [ ] Je crois que j'ai rien free du tout là. Mais normalement je perds rien donc je peux tout free à la fin.
-  - Il faudra que je free: stack_b, la linked list the coûts dans chaque maillon de stack_a, et stack_a.
+  - Il faudra que je free: stack_b (?), la linked list the coûts dans chaque maillon de stack_a, et stack_a.
 - [ ] Push_swap utils: too many functions in file
 - [ ] J'ai un peu fait le fou dans ma fonction set_stack_as_sorted, verifier que ca fonctionne bien.
 - [ ] Renomer ft_set_stack_as_sorted
-- [ ] Virer toutes les fonctions de la libft que je n'utilise pas !
+- [x] Virer toutes les fonctions de la libft que je n'utilise pas !
+- [ ] Virer le -g flag du makefile
 </details>
 
 ---
