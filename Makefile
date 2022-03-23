@@ -51,6 +51,7 @@ SRC_FILES = operation_push \
 			sort_small_lists \
 			sorting_utils \
 			sort_long_lists \
+			free_functions \
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))

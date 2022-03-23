@@ -115,4 +115,8 @@ void		calc_total_move_cost(t_list **item);
 /* Sort GPS */
 void		sort_gps(t_list **stack_a, t_list **stack_b, t_log **actions);
 
+/* Free functions */
+void		free_stack(t_list *stack);
+void		free_log(t_log *actions_log);
+
 #endif
