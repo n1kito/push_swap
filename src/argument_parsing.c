@@ -23,6 +23,7 @@ int	args_to_list(int arg_count, char **argv, t_list **stack_a)
 	char	**divided_args;
 
 	i = 1;
+
 	while (--arg_count)
 	{
 		divided_args = ft_split(argv[i++], ' ');
@@ -35,17 +36,10 @@ int	args_to_list(int arg_count, char **argv, t_list **stack_a)
 			if (!lst_duplicate_check(*stack_a, (int)ft_atol(divided_args[j]))
 				|| !lst_add_last(stack_a, divided_args[j++]))
 				return (0);
+		free(divided_args[0]);
+		free(divided_args);
 	}
 	lst_indexer(stack_a);
-	// cette partie ne fonctionne pas, mes numeros sont toujours leaks...
-	i = 0;
-	while (divided_args[i])
-	{
-		free(divided_args[i]);
-		i++;
-	}
-	free(divided_args);
-	//
 	return (1);
 }
 
@@ -77,7 +71,6 @@ int	lst_add_last(t_list **stack, char *arg)
 	return (1);
 }
 
-// -TODO nettoyer ce truc en virant ceux que je n'utilise pas finalement
 void	new_node_setup(t_list **new_node)
 {
 	(*new_node)->next = NULL;
