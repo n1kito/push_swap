@@ -17,12 +17,6 @@ void	free_stack(t_list *stack)
 	t_list	*current;
 	t_list	*tmp;
 
-	// inutile si b ne pointe sur rien
-//	if (stack == NULL)
-//	{
-//		free(stack);
-//		return;
-//	}
 	current = stack;
 	while (current)
 	{

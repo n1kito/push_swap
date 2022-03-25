@@ -23,7 +23,6 @@ int	args_to_list(int arg_count, char **argv, t_list **stack_a)
 	char	**divided_args;
 
 	i = 1;
-
 	while (--arg_count)
 	{
 		divided_args = ft_split(argv[i++], ' ');

@@ -22,23 +22,6 @@
 # include "../libft/include/libft.h"
 
 /* ########################################################################## */
-/* OPERATIONS */
-
-//# define O_PA op_push(stack_a, stack_b, actions)
-//# define O_PB op_push(stack_b, stack_a, actions)
-//# define O_PUSH op_push(stack2, stack, actions)
-//# define O_PUSH_BACK op_push(stack, stack2, actions)
-//# define O_SWAP op_swap(stack, actions)
-//# define O_SWAP_SECOND op_swap(stack2, actions)
-//# define O_ROTATE op_rotate(stack, actions)
-//# define O_ROTATE_SECOND op_rotate(stack2, actions)
-//# define O_ROTATE_BOTH op_rotate_both(stack, stack2, actions)
-//# define O_REV_ROTATE op_rev_rotate(stack, actions)
-//# define O_REV_ROTATE_SECOND op_rev_rotate(stack2, actions)
-//# define O_REV_ROTATE_BOTH op_rev_rotate_both(stack, stack2, actions)
-//# define O_SB op_swap(stack_b, actions, "sb")
-
-/* ########################################################################## */
 /* STRUCTURES */
 
 typedef struct s_log

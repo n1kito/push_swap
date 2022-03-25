@@ -54,7 +54,7 @@ void	push_cheapest(t_list **s, t_list **s2, t_log **actions, int cutoff)
 	while (current)
 	{
 		if (current->sort_index >= cutoff)
-			current->cost->total_cost = 99999;
+			current->cost->total_cost = 2147483647;
 		else
 			cost_calculator(&current, s, s2);
 		current = current->next;

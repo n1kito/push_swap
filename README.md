@@ -105,72 +105,15 @@ In case of error, you must display `Error` followed by a `\n` on the standard er
 ---
 # My Approach
 
-<br>
-<p align="center">
-(<b>List</b>: 100 – <b>Operations</b>: 551)
-<br><br>
-<img src="img/push_swap_100_551ops(fast).gif" alt="Push_swap 100 numbers 551 operations">
-</p>
+I divided my code into several algorithms depending on how many numbers are added to `stack_a`.
 
+### For lists of `2`
 
-# Algorithm Efficiency
+A function just swaps the numbers.
 
-[Tests spreadsheet](https://docs.google.com/spreadsheets/d/1kVyRijv79XmJY1otm2J91d5ZcBccza-yDX8xMglieaM/edit#gid=0)
+### For lists of `3`
 
-<table><thead><tr><th rowspan="3">List length<br></th><th colspan="4">Operations</th></tr><tr><th rowspan="2">Max allowed<br> to get bonus</th><th colspan="3">My algorithm</th></tr><tr><th>Average</th><th>Min</th><th>Max</th></tr></thead><tbody><tr><td><b>3</b></td><td>3</td><td></td><td></td><td></td></tr><tr><td><b>5</b></td><td>12</td><td></td><td></td><td></td></tr><tr><td><b>100</b></td><td>700</td><td></td><td></td><td></td></tr><tr><td><b>500</b></td><td>5500</td><td></td><td></td><td></td></tr></tbody></table>
-
-
----
-# A VIRER
-
-### Notions
-
-+ [Mon algo au final](https://github.com/terngkub/push_swap)
-+ [Visualisateur d'algos](http://lwh.free.fr/pages/algo/tri/tri.htm)
-+ Concept of [complexity/analysis of algorithms](https://en.wikipedia.org/wiki/Analysis_of_algorithms).
-+ [Ditto](https://www.google.com/search?client=safari&rls=en&q=Analysis+of+algorithms&ie=UTF-8&oe=UTF-8).
-+ What is a [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)).
-
-> Sorting values is simple. To sort them the fastest way possible is less simple, especially
-**because from one integers configuration to another, the most efficient sorting algorithm
-can differ.**
-
----
-
-### Ma stratégie
-
-Je pense que je vais d'abord essayer d'implémenter Quicksort, et s'il n'est pas assez opti sur les petits nombres peut-être que j'en coderai un second plus optimisé, genre Bucket sort.  
-Il faudra donc que je fasse un max de tests pour voir à partir de combien d'arguments il faut passer de l'un à l'autre.
-
-[Sur internet](https://stackoverflow.com/questions/33704858/sorting-2-linked-list-of-50000-numbers-with-a-limited-set-of-operations) on parle aussi de faire un mix entre QuickSort et [merge sort](https://www.youtube.com/watch?v=dENca26N6V4).
-
-#### Understanding QuickSort
-
-[QuickSort Visualisation <3](https://opendsa-server.cs.vt.edu/embed/quicksortAV)
-[Sorting Algorithms Animations](https://www.toptal.com/developers/sorting-algorithms)
-
-[Short video](https://www.youtube.com/watch?v=Hoixgm4-P4M) | [Clear video 💖](https://www.youtube.com/watch?v=7h1s2SojIRw) with [details](https://www.youtube.com/watch?v=-qOVVRIZzao)
-
-In QuickSort, an element is considered ✅**sorted** if it checks the following conditions:
-- [x] All elements to its left are **smaller** than it
-- [x] All elements to its right are **bigger** than it.
-
-[Quick sort VS Bucket sort – Which is faster ?](https://smartbear.com/blog/bucket-sort-vs-quick-sort-which-is-faster-aqtime-b/)  
--> Quand il y a beaucoup de nombres c'est quick sort, quand il y en a moins c'est bucket sort. Peut-être implémenter les deux ?
--> Il semblerait que le probleme de quicksort soit aussi les cas ou les listes sont deja presque triees. [Introspective sort](https://en.wikipedia.org/wiki/Introsort) serait [capable d'y parrer](https://stackoverflow.com/a/220171) il semblerait.
--> Une idee serait d'écrire une fonction "smart rotate" comme décrit [ici](https://github.com/AdrianWR/push_swap), qui calcule toute seule la maniere la moins "couteuse" de ramener un nombre vers le haut.
-
-[Lui il utilise quicksort puis insertion (video)](https://www.youtube.com/watch?v=9LifznRAZQY)
-
-[42 requirements + implementation of raddix sort](https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e)
-
-Je donne a chaque element de la stack un boolean "is_sorted", qui m'aidera à "diviser" les segments à foutre a droite pour les trier.
-- [ ] Est-ce que je mets un boolean "is pivot" aussi ? Pour identifier les pivots? Mais si je fais ca, autant utiliser juste un seul boolean "is_pivot" puisque par definition, les elements qui ont ete pivots sont sorted. Oui mais pendant le tri je serai bien content de pouvoir differencier les deux.
-
-<!--
-### Listes à 3 chiffres
-
-Pour les listes à 3 chiffres, il y a 6 combinaisons possibles: 
+I treat all cases possible here, there are only 5 so one function is enough.
 
 | #1 	 |     #2 	     | #3 	| #4 	| #5 	| #6 	|
 |:----:|:------------:|:---:	|:---:	|:---:	|:---:	|
@@ -178,44 +121,49 @@ Pour les listes à 3 chiffres, il y a 6 combinaisons possibles:
 | 2 	  |     2 	      | 1 	| 1 	| 3 	| 3 	|
 | 3 	  |     1 	      | 3 	| 2 	| 2 	| 1 	|
 | ⭐	  |`sa`<br>`rra` 	 | `sa` 	| `ra` 	| `sa`<br>`ra` 	| `rra` 	|
--->
 
 
-[from discord, easiest to understand per a student](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
-<details><summary>Algo super bien explique (github)</summary>
+### For longer lists
 
-[click me](https://github.com/VBrazhnik/Push_swap/wiki/Algorithm) 💗
-</details>
-<details><summary>Recommandes par Amina</summary>
+<p align="center">
+(<b>List</b>: 100 – <b>Operations</b>: 551)
+<br><br>
+<img src="img/push_swap_100_551ops(fast).gif" alt="Push_swap 100 numbers 551 operations">
+</p>
 
-[#1](https://github.com/balkisous/push_swap)  
-[#2](https://github.com/ttranche/push_swap) (_celui-ci donne comme exemple l'algo super bien explique juste au-dessus_)
-</details>
-<!-- 
+My algorithm is based on cost calculation mixed with a selection sort.  
+
+I will use the cost calculation sort until `stack_a` is down to the 10 biggest numbers in the range, then I will selection sort these 10 numbers before pushing everything back from `stack_b` to `stack_a`.
+
+Here is how it works:
++ Push one number to `stack_b` (that is _not_ in the 10 biggest numbers of the range)
++ While `stack_a->len` > 10, use a `push_cheapest()` function:
+  + If `number` is in the 10 biggest of `stack_a`, I attribute it a very high cost so it won't be moved.
+  + Otherwise, I calculate the cost not only to push it from `stack_a` to `stack_b`, but also to prepare `stack_b` to receive it.
+    + For `stack_b` to be prepared to receive a number from `stack_a` and have it be sorted, the **last** number in `stack_b` has to be the one that is directly bigger than the number we're trying to push. **Unless** the number I'm trying to push is the highest number of the stack, then I need the last number in `stack_b` to be its smallest number.
+  + I then push the cheapest one of those numbers until `stack_a` has a len of 10 && `stack_b` is sorted from biggest to smallest.
++ Since `stack_a` now only has 10 numbers, I use selection sort to sort them from biggest to smallest in `stack_a`
++ Finally, I push everything back to `stack_a`.
+
+**Why use selection sort when `stack_a` is <= 10 ?**  
+Because when `stack_b` is very big, the cost to prepare it to receive numbers from `stack_a` is very high.  
+Using selection sort in that case allowed be to use less operations.
+
+
+
+# Algorithm Efficiency
+
+<table><thead><tr><th rowspan="3">List length<br></th><th colspan="4">Operations</th></tr><tr><th rowspan="2">Max allowed<br> to get bonus</th><th colspan="3">My algorithm<br/>(10.000 tests)</th></tr><tr><th>Average</th><th>Min</th><th>Max</th></tr></thead><tbody><tr><td><b>3</b></td><td>3</td><td>1</td><td>0</td><td>2</td></tr><tr><td><b>5</b></td><td>12</td><td>6</td><td>0</td></td><td>10</td></tr><tr><td><b>100</b></td><td>700</td><td>584</td><td>497</td><td>686</td></tr><tr><td><b>500</b></td><td>5500</td><td>5228</td><td>4847</td><td>5636</td></tr></tbody></table>
+
+### Possible improvements
+
+#### Speed
+For the cost calculation function that runs after every push from `stack_a` to `stack_b`, I might want to only calculate cost on the first & last _n_ numbers in the stack, the ones close*ish* to the top/bottom of the list and easiest to push to `stack_b`.  
+I might be able to assume that a number right in the middle of a `stack_a` of 500 numbers will **never** be the cheapest to push.  
+But that would only improve runtime and not the number of operations used to sort the stacks.
 ---
 
-### Checker script
-![checker_example](img/checker_script_example.png) -->
-
----
-
-### Notes
-
-+ Pour exécuter le prog: `./push_swap (arguments) | wc -l`
-+ Pour pouvoir voir la priorité des opérateurs en exam: `man operator`
-+ Mieux comprendre ce qui se passe à la compilation: [ici](https://moodle.campusafrica.gos.orange.com/pluginfile.php/1430/mod_resource/content/1/lecon1/co/Module_lecon1_3.html). [(c.f.)](https://discord.com/channels/774300457157918772/817041043764805692/933063036296630342)
-+ [Quick sort for double linked lists](https://www.geeksforgeeks.org/quicksort-for-linked-list/).
-+ Lire [ce README](https://github.com/terngkub/push_swap) pour comprendre le concept d'attribution de coût aux opérations de tri.
-+ Certains utilisent les [listes chaînées circulaires](https://chgi.developpez.com/dblist/liste.gif) ou les [listes doublement chaînées](https://chgi.developpez.com/dblist/), intéressant.
-
----
-
-### Testeurs / Ressources
-
-+ [42_Corrections](https://github.com/Binary-Hackers/42_Corrections)
-+ [Push_swap_algorithm (PDF)](subject/push_swap_algorithm.pdf)
-
-#### Trucs à tester
+# Error Handling
 
 <details><summary>Argument parsing</summary>
 
@@ -225,78 +173,47 @@ Pour les listes à 3 chiffres, il y a 6 combinaisons possibles:
 -2147483648 (ok)  
 +2147483648 (error car > max int)  
 -2147483649 (error car < min int)  
--/+ seuls (doit renvoyer une erreur, a verifier en comparant avec le checker)  
+-/+ seuls (doit renvoyer une erreur)  
 123432b (error)  
 "1 3 4354j" (error)  
-"" (moi ca renvoie rien mais je pense que ca devrait me mettre une erreur puisque si j'appelle le prog sans rien il m'en met une)  
-" " (doit renvoyer error normalement, puisque l'espace est un char)  
+"" (pas d'erreur, ne renvoie rien)  
+" " (pas d'erreur, ne renvoie rien)  
 1 2 3 4 3 (error)  
 1 2 3 "4 5 6" (ok)  
 1 2 3 "4 5 6 1" (error)  
 1 2 3 -4 (ok)  
 1 2 3-4 (error)  
-"-4 4" 5 4 (ok)  
-" " 5 4 (???) moi ca me met KO, parce qu'il n'y a aucun chiffre  
-"  " 5 4 (???) idem  
-"  4" 3 2 (???) moi ca me met ok
+"-4 4" 5 4 (error)  
+" " 5 4 (ok)
+"  " 5 4 (ok)   
+"  4" 3 2 (ok)
 </details>
 
-<details><summary>Operations / Actions</summary>
-
-- [ ] Verifier ce que font les actions sur des listes de 2, 3... (swap ne marchait pas sur des listes de 2 par exemple)
-- [ ] Verifier que le len du premier maillon de chaque chaine est toujours a jou.
-</details>
 ---
 
-### FAQ
-
-<details><summary>Click to open</summary>
-
-> J'ai code un generaeur mais impossible de passer ce qu'il produit a mon programme qui cossidere la liste come une seule chaine de charactere quelque chose comme ca "1 2 3 4 5"
-Donc je me demande si c'est moi qui sait pas trop me servir de bash et que je fais quelque chose de travers ou si mon push_swap est sense gerer les chaines "1 2 3 4 5" comme une liste de 5 chiffres
-> > Le sujet est sous bash, il comprendra que chaque chiffre est un argument différent et non une chaine de caractères. Alors que zsh le comprend comme une seule chaîne de caractères
-> > > Si jamais, c'est possible de le faire avec zsh aussi, il faut utiliser l'option shwordsplit avec setopt shwordsplit directement dans le terminal
->
-> > Ou soit au lieu de ./push_swap $ARG tu écris sous zsh ./push_swap ${=ARG}
+# Useful testers
 
 
-> Yo, est ce que avoir un argument avec plusieurs espace est valide pour push swap ?
-exemple : "1 5                3 4"
-> > Le sujet ne porte pas vraiment sur le parsing des arguments mais sur de l algo, donc tant que ton programme ne crash pas et que tu justifies ton choix je pense que c est bon
+⭐⭐ [Quickly runs many tests with goal number of operations, precision, and uses checkers](https://github.com/SimonCROS/push_swap_tester)  
+⭐ [Test aussi l'input des arguments](https://github.com/ael-bekk/push_swap_tester)  
+[Tests using checker](https://github.com/izenynn/push_swap_tester)  
+[42_Corrections](https://github.com/Binary-Hackers/42_Corrections)
 
-> quelqu'un sait comment inclure sa libft au projet ? je dois avoir 2 makefile ou bien un makefile qui compile le makefile de la libft ?
->> il suffit davoir un dossier libft avec tes srcs / headers + le makefile de ta libft a linterieur, puis en supposant que le Makefile de ton projet se trouve a la racine de celui ci, pour ocmpiler ta lib c make -C libft
-et si tu veux clean / fclean / re ta libft c make clean -C libft etc
+🌈 [Push_Swap visualizer](https://github.com/o-reo/push_swap_visualizer.git)
 
-> Hello si on a respectivement 2/5 et 3/5 pour 100 arguments et 500 arguments, vous pensez que le projet est validé ?
->> Pour avoir 84, il faut 3 et 4 / 5  
-Je pense que 80 est sur un 3 et 3.
->
->> Si j'ai bien compris si on a 0 et 0 et tout le reste bon c'est 50. À ça il faut ajouter 6% par point au 100 et 4% par point au 500.  
->> De source sûre : (0, 0) donne 50,(3,4) donne 84, (4,3) donne 86, (5,3) donne 92, c'est à partir de ces chiffres que j'ai déduit ça
+## Checking for leaks on Mac_OS
 
-> Hello, puisqu'on est évalué sur max 500 arguments, est-ce que c'est ok si j'exit le programme si ce nombre est dépassé ou il faut le gérer quand-même ?
->> Il faut le gérer quand même. Même si il n y a pas de barème. Il peut même y avoir de int min à int max en arguments.
+```C
+// add this line in main function, right before return:
+system("leaks push_swap");
+```
+If you have leaks and want to track their origin(s):
+```shell
+# in the terminal:
+export MallocStackLogging=1
 
-> Euh ça va vous sembler bête mais s'il y a qu'un seul nombre en paramètre ./push_swap 1, vous avez choisi de le gérer comment ?
->> la pile est triée si y a qu un nombre ;)
-
-> Je place ça là, ça peux aider : je me suis embêté à try pleins d'algos "complique" (pr mon ptit cerveau) et j'étais toujours un peu au dessus de 700 et 5500. Puis j'ai trouve un mec sur git, j'ai littéralement lu 3 lignes de son readme; je me suis exclamé c'est du génie ! et sans mm regarder son code j'ai recode tte la partie algo en très peux de temps (pas le main et la gestion des op donc) et j'ai 100% partt. En fait c'est d'une simplicité enfantine : c'est du caclcul de coût. Tu pa deux fois puis tu calcul CB ça te coûte d'insérer le premier NB de a ds b (le monter TT en haut + préparer B à l'accueillir + 1 pr push). Puis tu fais le mm calcul sur TT A et à la fin tu inséré celui qui "coûte le moins cher" dans B. Il y beaucoup plus opti car la ce n'est que coup par coup sans visions globale mais pour 100 int je suis toujours en dessous de 700 et pr 500 int sur 10 000 test une ou deux fois je suis au dessus mais bon mathématiquement il y a peu de chance qu'un correcteur tombe sur ce cas là car mon algo met 1 bonne sec à s'exécuter pr 500 nbr dc 10 000 tests je vous laisse faire le calcul...
-De mon point de vue de TT les algos que j'ai try (chunk, etc...) c'est le plus opti enfin celui qui m'a permis d'avoir 125% quoi et paradoxalement le plus simple que j'ai eu à coder.
-Bien plus simple que ceux avec les chunks par ex.
-À noter que B est toujours trie mais pas forcément avec le début de la liste en haut : par ex : B :
-9
-10
-1
-2
-3
-4
-5  
-> [Le git du mec en question](https://github.com/terngkub/push_swap)
-
-[Astuce pour "sa et "sb"](https://discord.com/channels/774300457157918772/817041043764805692/931964330667298937)
-
-</details>
+# j'ai pas encore pigé comment désactiver l'option, quand je refais avec =0 bah ça continue.
+```
 
 ---
 

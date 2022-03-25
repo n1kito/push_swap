@@ -16,12 +16,6 @@
  * rotations needed to push from stack_a, rotations needed to receive in stack_b
  * the actual push (+1), and including optimisations with ss, rr & rrr. */
 
-// calcul du cout de rotations dans stack_b
-// je cherche le pour mettre a la fin de b l'item qui a le sort index
-// juste au dessus l'item de a
-// si ce qye je veux push est le plus grand il faut que je mettre
-// le prochain plus petit en index 0 dans B
-// nxt_bigger_i_in b +1 because I need it at the back
 void	cost_calculator(t_list **item, t_list **s, t_list **s2)
 {
 	int	nxt_bigr_i_in_b;
@@ -69,7 +63,7 @@ void	optimize_moves(t_list	**item)
 }
 
 /* Adds up every move necessary to push the number to its correct spot in the
- * second stack. Ending +1 for the obligatory push */
+ * second stack. Ending +1 for the obligatory push. */
 
 void	calc_total_move_cost(t_list **item)
 {

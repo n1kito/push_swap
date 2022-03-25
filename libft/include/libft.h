@@ -22,7 +22,7 @@ size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 char			**ft_split(char const *s, char c);
 void			ft_putstr(char *str);
 
-typedef struct	s_cost
+typedef struct s_cost
 {
 	int			total_cost;
 	int			ra;
@@ -33,7 +33,7 @@ typedef struct	s_cost
 	int			rrr;
 }				t_cost;
 
-typedef struct		s_list
+typedef struct s_list
 {
 	int				data;
 	int				len;
