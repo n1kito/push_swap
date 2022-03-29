@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 void	selection_sort(t_list **stack, t_list **stack2, t_log **actions)
 {

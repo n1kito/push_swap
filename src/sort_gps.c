@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 void	sort_gps(t_list **stack_a, t_list **stack_b, t_log **actions)
 {

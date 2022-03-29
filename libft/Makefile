@@ -1,75 +1,60 @@
 # **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: mjallada <mjallada@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/12/02 13:56:50 by mjallada          #+#    #+#              #
-#    Updated: 2021/12/10 09:52:16 by mjallada         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-# **************************************************************************** #
 # VARIABLES
 
-NAME		= libft.a
-INCLUDE		= include
-CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
-RM 			= rm
-AR 			= ar rc
-SRC_DIR 	= src/
-OBJ_DIR 	= obj/
+NAME		:= libft.a
+DIRS		:= libft
+
+CC			:= gcc
+CFLAGS		:= -Wall -Wextra -Werror
+AR 			:= ar rc
+
+INC_DIR		:= inc
+SRC_DIR		:= src
+BIN_DIR		:= bin
 
 # **************************************************************************** #
 # COLORS
 
-DEF_COLOR	= \033[0;39m
-GREEN		= \033[0;92m
-YELLOW		= \033[0;93m
-BLUE		= \033[0;94m
+GREEN		:= \033[0;92m
+YELLOW		:= \033[0;93m
+BLUE		:= \033[0;94m
+END_COLOR	:= \033[0;39m
 
 # **************************************************************************** #
 # SOURCES
 
-SRC_FILES 	= ft_isdigit \
-			ft_strlen \
-			ft_strlcpy \
-			ft_split \
-			ft_putstr \
-			ft_lstlast \
-
-SRC 		= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
-OBJ 		= $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
+SRC_FILES	:= $(notdir $(basename $(wildcard $(SRC_DIR)/*.c)))
+OBJ_FILES	:= $(addprefix $(BIN_DIR)/, $(addsuffix .o, $(SRC_FILES)))
 
 # **************************************************************************** #
+# RULES
 
-OBJF		= .cache_exists
+all: $(NAME)
 
-all:		$(NAME)
+$(NAME): $(OBJ_FILES)
+	@$(AR) $(NAME) $(OBJ_FILES)
+	@echo "$(GREEN)$(NAME) compiled :)$(DEF_COLOR)"
 
-$(NAME):	$(OBJ)
-			@$(AR) $(NAME) $(OBJ)
-			@echo "$(GREEN)$(NAME) compiled :)$(DEF_COLOR)"
+$(BIN_DIR)/%.o: $(SRC_DIR)/%.c Makefile | $(BIN_DIR)
+	@$(CC) -MD -c $(CFLAGS) -I $(INC_DIR) $< -o $@
+	@echo "$(BLUE)Compiling $(notdir $<)$(END_COLOR)"
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
-			@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
-			@$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
-
-$(OBJF):
-			@mkdir -p $(OBJ_DIR)
+$(BIN_DIR):
+	@mkdir $(BIN_DIR)
+	@echo "Created $(BIN_DIR)/ directory in $(DIRS)/"
 
 clean:
-			@$(RM) -rf $(OBJ_DIR)
-			@echo "$(BLUE)$(NAME) object files cleaned.$(DEF_COLOR)"
+	@rm -rf $(BIN_DIR)
+	@echo "$(YELLOW)$(NAME) object & dependency files cleaned.$(END_COLOR)"
 
 fclean: clean
-			@$(RM) -f $(NAME)
-			@echo "$(BLUE)$(NAME) executable file cleaned.$(DEF_COLOR)"
+	@rm -f $(NAME)
+	@echo "$(YELLOW)$(NAME) executable file cleaned.$(END_COLOR)"
 
-re: 	fclean all
-			@echo "$(GREEN)Cleaned all and rebuilt $(NAME) :)$(DEF_COLOR)"
+re: fclean all
+	@echo "$(GREEN)Cleaned all and rebuilt $(NAME)!$(END_COLOR)"
+
+-include $(OBJ_FILES:%.o=%.d)
 
 # **************************************************************************** #
 # PHONY

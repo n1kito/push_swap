@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 /* Calculates cost to push to other list, taking into account:
  * rotations needed to push from stack_a, rotations needed to receive in stack_b

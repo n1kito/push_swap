@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 /* This function checks the input, if the input arguments respect the subject
  * requirement they get added to stack_a and the function returns (1),

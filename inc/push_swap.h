@@ -19,7 +19,7 @@
 # include <stdio.h> // a virer
 # include <stdlib.h>
 # include <unistd.h>
-# include "../libft/include/libft.h"
+# include "libft.h"
 
 /* ########################################################################## */
 /* STRUCTURES */
