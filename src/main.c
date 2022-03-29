@@ -29,7 +29,10 @@ int	main(int argc, char **argv)
 			return (1);
 		}
 		if (lst_is_sorted(stack_a))
+		{
+			free_stack(stack_a);
 			return (0);
+		}
 		lst_sort_indexer(&stack_a);
 		sort_gps(&stack_a, &stack_b, &actions_log);
 		print_log(actions_log);
