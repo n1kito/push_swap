@@ -16,7 +16,6 @@
 /* ########################################################################## */
 /* INCLUDES */
 
-# include <stdio.h> // a virer
 # include <stdlib.h>
 # include <unistd.h>
 # include "libft.h"
