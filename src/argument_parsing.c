@@ -28,6 +28,7 @@ int	args_to_list(int arg_count, char **argv, t_list **stack_a)
 		divided_args = ft_split(argv[i++], ' ');
 		j = 0;
 		while (divided_args[j])
+		{
 			if (!args_digit_check(divided_args[j++]))
 			{
 				free(divided_args[0]);
@@ -35,17 +36,19 @@ int	args_to_list(int arg_count, char **argv, t_list **stack_a)
 				free_stack(*stack_a);
 				return (0);
 			}
-
+		}
 		j = 0;
 		while (divided_args[j])
-			if (!lst_duplicate_check(*stack_a, (int)ft_atol(divided_args[j]))
+		{
+			if (!lst_duplicate_check(*stack_a, (int) ft_atol(divided_args[j]))
 				|| !lst_add_last(stack_a, divided_args[j++]))
-				{
-					free(divided_args[0]);
-					free(divided_args);
-					free_stack(*stack_a);
-					return (0);
-				}
+			{
+				free(divided_args[0]);
+				free(divided_args);
+				free_stack(*stack_a);
+				return (0);
+			}
+		}
 		free(divided_args[0]);
 		free(divided_args);
 	}

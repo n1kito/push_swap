@@ -26,7 +26,20 @@ END_COLOR	:= \033[0;39m
 # **************************************************************************** #
 # SOURCES
 
-SRC_FILES	:= $(notdir $(basename $(wildcard $(SRC_DIR)/*.c)))
+SRC_FILES	:=	argument_checker\
+				argument_parsing\
+				cost_management\
+				free_functions\
+				main\
+				operation_push\
+				operation_rotate\
+				operation_swap\
+				push_swap_utils\
+				sort_average_lists\
+				sort_gps\
+				sort_long_lists\
+				sort_small_lists\
+				sorting_utils
 OBJ_FILES	:= $(addprefix $(BIN_DIR)/, $(addsuffix .o, $(SRC_FILES)))
 
 # **************************************************************************** #
@@ -37,7 +50,7 @@ all: $(NAME)
 $(NAME): $(OBJ_FILES)
 	make -C libft
 	@$(CC) -o $(NAME) $(OBJ_FILES) -L $(LIB_DIR) -l $(LIB)
-	@echo "$(GREEN)$(NAME) compiled :)$(DEF_COLOR)"
+	@echo "$(GREEN)$(NAME) compiled :)$(END_COLOR)"
 
 $(BIN_DIR)/%.o: $(SRC_DIR)/%.c Makefile libft/src/*.c | $(BIN_DIR)
 	@$(CC) -MD -c $(CFLAGS) -I $(INC_DIR) -I libft/inc $< -o $@
