@@ -162,6 +162,7 @@ Using selection sort in that case allowed be to use less operations.
 For the cost calculation function that runs after every push from `stack_a` to `stack_b`, I might want to only calculate cost on the first & last _n_ numbers in the stack, the ones close*ish* to the top/bottom of the list and easiest to push to `stack_b`.  
 I might be able to assume that a number right in the middle of a `stack_a` of 500 numbers will **never** be the cheapest to push.  
 But that would only improve runtime and not the number of operations used to sort the stacks.
+
 ---
 
 # Error Handling
