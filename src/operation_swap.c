@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-/* this file has the swapping functions: sa, sb ss */
-
 void	op_swap(t_list **list, t_log **actions)
 {
 	t_list	*head;

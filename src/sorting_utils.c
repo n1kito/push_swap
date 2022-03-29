@@ -34,42 +34,8 @@ void	smart_push(t_list **stack, t_list **stack2, t_log **actions, int index)
 	op_push(stack2, stack, actions);
 }
 
-/* Finds largest and smallest number indexes and decides which one to smart_push
- * depending on their position in the stack and in relation to each other */
-
-//void	sm_psh_l_o_s(t_list **stack, t_list **stack2, t_log **actions)
-//{
-//	int	largest_index;
-//	int	smallest_index;
-//	int	middle_of_list;
-//
-//	largest_index = find_biggest_num_i(*stack);
-//	smallest_index = find_smallest_num_i(*stack);
-//	middle_of_list = ((*stack)->len - 1) / 2;
-//	if (largest_index < middle_of_list && smallest_index < middle_of_list)
-//	{
-//		if (largest_index < smallest_index)
-//			smart_push(stack, stack2, actions, largest_index);
-//		else
-//		{
-//			smart_push(stack, stack2, actions, smallest_index);
-//			op_rotate(stack2, actions);
-//		}
-//	}
-//	else
-//	{
-//		if (largest_index > smallest_index)
-//			smart_push(stack, stack2, actions, largest_index);
-//		else
-//		{
-//			smart_push(stack, stack2, actions, smallest_index);
-//			op_rotate(stack2, actions);
-//		}
-//	}
-//}
-
-/* Finds the position of the biggest number in the stack.
- * Used for smart rotate and smart push */
+/* Finds the index of the biggest number in the stack.
+ * Used for smart rotate and smart push. */
 
 int	find_biggest_num_i(t_list *stack)
 {
@@ -94,8 +60,8 @@ int	find_biggest_num_i(t_list *stack)
 	return (i);
 }
 
-/* Finds the position of the smallest number in the stack.
- * Used for smart rotate and smart push */
+/* Finds the index of the smallest number in the stack.
+ * Used for smart rotate and smart push. */
 
 int	find_smallest_num_i(t_list *stack)
 {

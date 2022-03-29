@@ -31,6 +31,8 @@ void	selection_sort(t_list **stack, t_list **stack2, t_log **actions)
 		op_push(stack, stack2, actions);
 }
 
+/* Checks if list is sorted. */
+
 int	lst_is_sorted(t_list *list)
 {
 	t_list	*current;
@@ -50,10 +52,9 @@ int	lst_is_sorted(t_list *list)
 	return (1);
 }
 
-/* Sets n numbers in stack as sorted */
-// Ici je peux mettre un int en parametre. Si le int <= 0,
-// je mets toute la liste en sorted.
-// Sinon, je mets les n premiers nodes en sorted
+/* Sets n numbers in stack as sorted.
+ * If n <= 0, the entire list is set as sorted. */
+
 void	ft_set_stack_as_sorted(t_list **stack, int n)
 {
 	t_list	*current;

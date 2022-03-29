@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-/* this file has the rotate and reverse rotate functions */
-
 void	op_rotate(t_list **stack, t_log **actions)
 {
 	t_list	*head;

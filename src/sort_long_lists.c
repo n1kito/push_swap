@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-/* Sorts using cost of sorting each item in the list*/
+/* Sorts using cost of sorting each item in the list */
 
 void	cost_sort(t_list **stack, t_list **stack2, t_log **actions)
 {
@@ -92,7 +92,7 @@ void	opti_push(t_list **stack, t_list **stack2, int index, t_log **actions)
 }
 
 /* Finds the item with the least amount of moves and returns its index
- * Function based on the find_smallest_num_i function */
+ * Function based on the find_smallest_num_i function. */
 
 int	find_cheapest_index(t_list *stack)
 {

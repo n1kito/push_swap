@@ -83,9 +83,7 @@ long int	ft_atol(const char *nptr)
 	return (num * sign);
 }
 
-/* Used when push_swap is launched. Indexes each element in the same manner
- * as they would be in an array, so I know where they're supposed to end
- * up and can calculate the cost to move them accordingly */
+/* Attributes a sort index to each element in the list. */
 
 void	lst_sort_indexer(t_list **stack)
 {
@@ -107,8 +105,9 @@ void	lst_sort_indexer(t_list **stack)
 	}
 }
 
-/* Indexes my stacks. Has to be redone with every operation so not very
- * efficient. */
+/* Indexes each element in the same manner as they would be in an array,
+ * so I know where they're supposed to end up and can calculate the cost
+ * to move them accordingly */
 
 void	lst_indexer(t_list **stack)
 {
