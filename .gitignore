@@ -1,2 +1,7 @@
+# IDE & MACOS
 .idea/
 .DS_Store
+
+# Project
+
+bin/
