@@ -6,7 +6,7 @@
 /*   By: mjallada <mjallada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 21:57:41 by mjallada          #+#    #+#             */
-/*   Updated: 2022/03/21 17:08:16 by mjallada         ###   ########.fr       */
+/*   Updated: 2022/03/30 08:11:11 by mjallada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,14 @@ int	args_to_list(int arg_count, char **argv, t_list **stack_a)
 		j = 0;
 		while (divided_args[j])
 		{
-			if (!args_digit_check(divided_args[j++]))
+			if (!args_digit_check(divided_args[j])
+				|| !lst_duplicate_check(*stack_a, (int)ft_atol(divided_args[j]))
+				|| !lst_add_last(stack_a, divided_args[j]))
 			{
-				free(divided_args[0]);
-				free(divided_args);
-				free_stack(*stack_a);
+				free_parsing(divided_args, stack_a);
 				return (0);
 			}
-		}
-		j = 0;
-		while (divided_args[j])
-		{
-			if (!lst_duplicate_check(*stack_a, (int) ft_atol(divided_args[j]))
-				|| !lst_add_last(stack_a, divided_args[j++]))
-			{
-				free(divided_args[0]);
-				free(divided_args);
-				free_stack(*stack_a);
-				return (0);
-			}
+			j++;
 		}
 		free(divided_args[0]);
 		free(divided_args);

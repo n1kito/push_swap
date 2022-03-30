@@ -6,7 +6,7 @@
 /*   By: mjallada <mjallada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 12:54:06 by mjallada          #+#    #+#             */
-/*   Updated: 2022/03/22 07:55:17 by mjallada         ###   ########.fr       */
+/*   Updated: 2022/03/30 08:04:52 by mjallada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,8 @@ void		sort_gps(t_list **stack_a, t_list **stack_b, t_log **actions);
 /* Free functions */
 void		free_stack(t_list *stack);
 void		free_log(t_log *actions_log);
+void		free_parsing(char **divided_args, t_list **stack);
+void		nullify(t_list **stack_a, t_list **stack_b, t_log **actions_log);
+void		free_parsing(char **divided_args, t_list **stack);
 
 #endif

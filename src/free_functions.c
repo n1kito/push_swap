@@ -6,7 +6,7 @@
 /*   By: mjallada <mjallada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:35:46 by mjallada          #+#    #+#             */
-/*   Updated: 2022/03/23 19:35:50 by mjallada         ###   ########.fr       */
+/*   Updated: 2022/03/30 08:15:30 by mjallada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,12 @@ void	free_log(t_log *actions_log)
 		current = current->next;
 		free(tmp);
 	}
+}
+
+void	free_parsing(char **divided_args, t_list **stack)
+{
+	free(divided_args[0]);
+	free(divided_args);
+	free_stack(*stack);
+	return ;
 }
