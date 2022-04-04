@@ -6,7 +6,7 @@
 /*   By: mjallada <mjallada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 12:54:06 by mjallada          #+#    #+#             */
-/*   Updated: 2022/03/30 08:04:52 by mjallada         ###   ########.fr       */
+/*   Updated: 2022/04/04 15:13:17 by mjallada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int			find_smallest_num_i(t_list *stack);
 void		print_log(t_log *actions);
 void		ft_add_to_log(t_log **actions, char *action);
 long int	ft_atol(const char *nptr);
-int			get_int_len(int nbr);
 void		lst_sort_indexer(t_list **stack);
 void		lst_indexer(t_list **stack);
 void		ft_set_stack_as_sorted(t_list **stack, int n);
