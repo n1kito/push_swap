@@ -38,8 +38,7 @@ int	args_to_list(int arg_count, char **argv, t_list **stack_a)
 			}
 			j++;
 		}
-		free(divided_args[0]);
-		free(divided_args);
+		free_split_result(divided_args);
 	}
 	lst_indexer(stack_a);
 	return (1);

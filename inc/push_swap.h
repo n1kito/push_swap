@@ -103,5 +103,6 @@ void		free_log(t_log *actions_log);
 void		free_parsing(char **divided_args, t_list **stack);
 void		nullify(t_list **stack_a, t_list **stack_b, t_log **actions_log);
 void		free_parsing(char **divided_args, t_list **stack);
+void		free_split_result(char **divided_args);
 
 #endif

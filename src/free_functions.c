@@ -12,6 +12,17 @@
 
 #include "push_swap.h"
 
+void	free_split_result(char **divided_args)
+{
+	int	i;
+
+	i = 0;
+	while (divided_args[i])
+		free(divided_args[i++]);
+	free(divided_args);
+	return;
+}
+
 void	free_stack(t_list *stack)
 {
 	t_list	*current;
@@ -44,8 +55,7 @@ void	free_log(t_log *actions_log)
 
 void	free_parsing(char **divided_args, t_list **stack)
 {
-	free(divided_args[0]);
-	free(divided_args);
+	free_split_result(divided_args);
 	free_stack(*stack);
 	return ;
 }
