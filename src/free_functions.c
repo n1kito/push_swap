@@ -20,7 +20,7 @@ void	free_split_result(char **divided_args)
 	while (divided_args[i])
 		free(divided_args[i++]);
 	free(divided_args);
-	return;
+	return ;
 }
 
 void	free_stack(t_list *stack)
